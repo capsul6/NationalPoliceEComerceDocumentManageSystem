@@ -1,0 +1,22 @@
+
+.content {
+    margin-top: 20%;
+}
+
+body {
+    background-size: cover;
+    background: url(../../resources/images/White-Background-9B1%20обр.jpg) no-repeat;
+}
+
+.header {
+    display:block;
+    margin:0 auto;
+}
+
+.login-form {
+    width: 400px;
+}
+
+button {
+    width: inherit;
+}
