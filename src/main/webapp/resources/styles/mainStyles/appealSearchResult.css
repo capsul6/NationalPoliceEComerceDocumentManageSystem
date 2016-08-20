@@ -1,0 +1,22 @@
+body{
+    background-size: cover;
+    background: url(../../images/White-Background-9B1%20обр.jpg) no-repeat;
+}
+
+.header {
+    display:block;
+    margin:0 auto;
+}
+
+.table {
+    width: 95% ;
+    height: 30%;
+    margin:0 auto;
+    table-layout: fixed;
+    overflow: scroll;
+}
+
+.table td {
+    word-break: break-all;
+}
+

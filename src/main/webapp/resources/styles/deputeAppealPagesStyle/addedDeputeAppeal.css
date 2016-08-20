@@ -1,0 +1,20 @@
+p {
+    text-align: center;
+}
+
+body{
+    background-size: cover;
+    background: url(../../images/White-Background-9B1%20обр.jpg) no-repeat;
+}
+
+.header {
+    display:block;
+    margin:0 auto;
+}
+
+.alert-info {
+    margin-top: 10%;
+    text-align: center;
+    text-decoration-color: black;
+    color: black;
+}

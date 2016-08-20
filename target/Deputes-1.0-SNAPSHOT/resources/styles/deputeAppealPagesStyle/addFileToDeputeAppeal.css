@@ -1,0 +1,31 @@
+body{
+    background-size: cover;
+    background: url(../../images/White-Background-9B1%20обр.jpg) no-repeat;
+}
+
+.header {
+    display:block;
+    margin:0 auto;
+}
+
+button {
+    width: 100%;
+    margin-top: 3%;
+}
+
+form {
+    text-align: center;
+    width: 40%;
+    display:block;
+    margin:5% auto;
+}
+
+p {
+    text-align: center;
+    color: black;
+    font-weight: bolder;
+}
+
+input[type=file] {
+    margin: auto;
+}

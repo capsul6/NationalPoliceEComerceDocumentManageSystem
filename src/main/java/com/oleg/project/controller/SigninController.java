@@ -13,12 +13,12 @@ public class SigninController {
     @RequestMapping(value = "/signin", method = RequestMethod.GET)
     public String signin() {
         LOGGER.debug("Receive request to show signin page");
-        return "signin";
+        return "generalView/signin";
     }
 
     @RequestMapping(value = "/signin-failure", method = RequestMethod.GET)
     public String signinFailure() {
         LOGGER.debug("Receive request to show signin-failure page");
-        return "signin_failure";
+        return "generalView/signin_failure";
     }
 }
