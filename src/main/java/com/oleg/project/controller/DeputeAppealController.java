@@ -80,10 +80,10 @@ public class DeputeAppealController {
         if(!file.isEmpty()){
             try {
                 byte [] bytes = file.getBytes();
-
+                DeputeAppeal deputeAppeal = deputeAppealService.getById(id);
                 //Creating the directory to store file
                 String path = System.getProperty("user.home");
-                File directory = new File(path + File.separator + "DeputeAppealsFiles" + File.separator + file.getOriginalFilename());
+                File directory = new File(path + File.separator + "DeputeAppealsFiles" + File.separator + deputeAppeal.getIncomeNumber());
                 if(!directory.exists())
                     directory.mkdirs();
 
@@ -93,7 +93,7 @@ public class DeputeAppealController {
                         new FileOutputStream(serverFile));
                 stream.write(bytes);
                 stream.close();
-                DeputeAppeal deputeAppeal = deputeAppealService.getById(id);
+
                 DeputeAppealFiles deputeAppealFiles = new DeputeAppealFiles();
                 deputeAppealFiles.setDeputeAppeal(deputeAppeal);
                 deputeAppealFiles.setFilePath(serverFile.getAbsolutePath());
@@ -160,10 +160,11 @@ public class DeputeAppealController {
         return "deputeAppealView/deputeAppealSearchPage";
     }
 
+
     @RequestMapping(value = "/deputeAppealSearchPageResult", method = RequestMethod.GET)
     public String resultOfSearchingDeputeAppeal(@ModelAttribute("appealForRequest")DeputeAppealForRequestDto deputeAppealForRequestDto, Model model){
         LOGGER.debug("Receive request to get searching Depute Appeals list");
-            List<DeputeAppeal> deputeAppealList = deputeAppealService.individualSearch(deputeAppealForRequestDto);
+            List<DeputeAppeal>deputeAppealList = deputeAppealService.individualSearch(deputeAppealForRequestDto);
             model.addAttribute("deputeAppealList", deputeAppealList);
             return "deputeAppealView/deputeAppealSearchPageResult";
     }

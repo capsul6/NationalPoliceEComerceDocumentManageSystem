@@ -56,7 +56,7 @@
         <col width="10%"/>
         <col width="30%"/>
 
-          <c:forEach var="appeal" items="${deputeAppealList}">
+          <c:forEach items="${deputeAppealList}" var="appeal" >
         <tr>
           <td><c:out value="${appeal.incomeNumber}"/></td>
           <td><c:out value="${appeal.incomingDate}"/></td>

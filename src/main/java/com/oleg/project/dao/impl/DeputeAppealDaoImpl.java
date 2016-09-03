@@ -28,7 +28,7 @@ public class DeputeAppealDaoImpl implements AppealDao<DeputeAppeal> {
     //This method will return DeputeAppeal by id
     public DeputeAppeal getById(int id) {
         Criteria criteria = sessionDao.getSession().createCriteria(DeputeAppeal.class)
-                .add(Restrictions.idEq(id));
+              .add(Restrictions.idEq(id));
         return (DeputeAppeal) criteria.uniqueResult();
     }
 
@@ -92,7 +92,6 @@ public class DeputeAppealDaoImpl implements AppealDao<DeputeAppeal> {
         if(!deputeAppealForRequest.getMainWorker().equals("")) {
             criteria.add(Restrictions.eq("mainWorker", deputeAppealForRequest.getMainWorker()));
         }
-
         return criteria.list();
     }
 

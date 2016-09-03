@@ -1,6 +1,5 @@
 package com.oleg.project.domain.Appeal;
 
-import org.joda.time.LocalDate;
 
 import javax.persistence.*;
 import java.io.Serializable;
