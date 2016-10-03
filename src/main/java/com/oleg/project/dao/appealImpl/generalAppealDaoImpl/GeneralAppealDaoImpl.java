@@ -1,4 +1,4 @@
-package com.oleg.project.dao.impl;
+package com.oleg.project.dao.appealImpl.generalAppealDaoImpl;
 import com.oleg.project.dao.SessionDao;
 import com.oleg.project.domain.Appeal.AccessAppeal;
 import com.oleg.project.domain.Appeal.DeputeAppeal;

@@ -24,6 +24,10 @@ body{
     margin:0 auto;
 }
 
+a {
+    text-decoration: none;
+}
+
 button {
     margin-top: 10px;
     width: 200px;

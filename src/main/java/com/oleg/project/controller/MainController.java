@@ -3,7 +3,7 @@ package com.oleg.project.controller;
 import com.oleg.project.domain.Appeal.AccessAppeal;
 import com.oleg.project.domain.Appeal.DeputeAppeal;
 import com.oleg.project.domain.Appeal.LawyerAppeal;
-import com.oleg.project.service.AppealService.GeneralAppealServiceImpl;
+import com.oleg.project.service.appealService.GeneralAppealServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

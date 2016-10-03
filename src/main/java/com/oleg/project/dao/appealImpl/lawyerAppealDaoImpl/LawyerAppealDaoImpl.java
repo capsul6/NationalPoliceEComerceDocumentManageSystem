@@ -1,9 +1,9 @@
-package com.oleg.project.dao.impl;
+package com.oleg.project.dao.appealImpl.lawyerAppealDaoImpl;
 
 
 import com.oleg.project.dao.AppealDao;
 import com.oleg.project.dao.SessionDao;
-import com.oleg.project.domain.Appeal.DeputeAppealFiles;
+import com.oleg.project.domain.AppealFiles.DeputeAppealFiles;
 import com.oleg.project.domain.Appeal.LawyerAppeal;
 import com.oleg.project.domain.utilDomain.RequestForDeputeAppealSearch;
 import org.hibernate.Criteria;

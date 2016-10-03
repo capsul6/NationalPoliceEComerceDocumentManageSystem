@@ -2,11 +2,12 @@ package com.oleg.project.controller;
 
 
 import com.oleg.project.domain.Appeal.DeputeAppeal;
-import com.oleg.project.domain.Appeal.DeputeAppealFiles;
+import com.oleg.project.domain.AppealFiles.DeputeAppealFiles;
 import com.oleg.project.dto.appealDto.DeputeAppealDto;
 import com.oleg.project.dto.requestDto.DeputeAppealForRequestDto;
-import com.oleg.project.service.AppealService.AppealService;
-import com.oleg.project.service.AppealService.GeneralAppealServiceImpl;
+import com.oleg.project.service.appealFilesService.AppealFilesService;
+import com.oleg.project.service.appealService.AppealService;
+import com.oleg.project.service.appealService.GeneralAppealServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -31,6 +32,10 @@ public class DeputeAppealController {
     @Qualifier("deputeAppealService")
     @Autowired
     private AppealService<DeputeAppeal, DeputeAppealDto> deputeAppealService;
+
+    @Qualifier("deputeAppealFilesService")
+    @Autowired
+    private AppealFilesService<DeputeAppealFiles> deputeAppealFilesService;
 
     @Qualifier("generalAppealService")
     @Autowired
@@ -65,6 +70,16 @@ public class DeputeAppealController {
         return "deputeAppealView/informDeputeAppealPage";
     }
 
+    @RequestMapping(value = "/listOfFiles", method = RequestMethod.GET)
+    public String getListOfFiles(@RequestParam(value = "id", required = true) int id, Model model) {
+        LOGGER.debug("Receive request to show listOfFiles page");
+        DeputeAppeal deputeAppeal = deputeAppealService.getById(id);
+        List<DeputeAppealFiles> deputeAppealFilesList = deputeAppeal.getDeputeAppealFiles();
+        model.addAttribute("listOfFiles", deputeAppealFilesList);
+        model.addAttribute("deputeAppealForListOfFilesPage", deputeAppeal);
+        return "deputeAppealView/listOfFiles";
+    }
+
     @RequestMapping(value = "/getPageForUploadFileForDeputeAppeal", method = RequestMethod.GET)
     public String getUploadFile(@RequestParam(value = "id", required = true) int id, Model model){
         LOGGER.debug("Receive request to show add file page");
@@ -94,12 +109,14 @@ public class DeputeAppealController {
                 stream.write(bytes);
                 stream.close();
 
+                //construct deputeAppealFile object
                 DeputeAppealFiles deputeAppealFiles = new DeputeAppealFiles();
                 deputeAppealFiles.setDeputeAppeal(deputeAppeal);
                 deputeAppealFiles.setFilePath(serverFile.getAbsolutePath());
                 deputeAppealFiles.setFileType(file.getContentType());
-                deputeAppeal.getDeputeAppealFiles().add(deputeAppealFiles);
-                deputeAppealService.editFilePath(deputeAppealFiles);
+                deputeAppealFiles.setFileName(file.getOriginalFilename());
+                //save deputeAppealFile
+                deputeAppealFilesService.addFiles(deputeAppealFiles);
                 model.addAttribute("deputeAppealId", deputeAppeal);
                 model.addAttribute("fileDirection", deputeAppealFiles.getFilePath());
 
@@ -114,18 +131,21 @@ public class DeputeAppealController {
         return "deputeAppealView/addedFile";
     }
 
+
     @RequestMapping(value = "/downloadFile", method = RequestMethod.GET)
-    public void downloadFile(HttpServletResponse response, @RequestParam(value = "id", required = true) int id) {
-        try {
-            DeputeAppeal deputeAppeal = deputeAppealService.getById(id);
-            // get your file as InputStream
-            InputStream is = new FileInputStream(deputeAppeal.getDeputeAppealFiles().get(id - 1).getFilePath());
-            // copy it to response's OutputStream
-            org.apache.commons.io.IOUtils.copy(is, response.getOutputStream());
-            response.flushBuffer();
-        } catch (IOException ex) {
-            throw new RuntimeException("IOError writing file to output stream");
-        }
+    public void downloadFile(HttpServletResponse response, @RequestParam(value = "fileId", required = true) int fileId) {
+
+       DeputeAppealFiles deputeAppealFiles = deputeAppealFilesService.getByFileId(fileId);
+
+            try {
+                response.setContentType(deputeAppealFiles.getFileType());
+                InputStream is = new FileInputStream(deputeAppealFiles.getFilePath());
+                org.apache.commons.io.IOUtils.copy(is, response.getOutputStream());
+                response.flushBuffer();
+            } catch (IOException ex) {
+                throw new RuntimeException("IOError writing file to output stream");
+            }
+
     }
 
 

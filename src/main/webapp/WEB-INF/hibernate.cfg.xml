@@ -10,6 +10,7 @@
         <!-- Enable this to see the SQL statements in the logs-->
         <property name="show_sql">true</property>
         <property name="hbm2ddl.auto">create-drop</property>
+        <property name="hibernate.enable_lazy_load_no_trans">true</property>
 
     </session-factory>
 </hibernate-configuration>

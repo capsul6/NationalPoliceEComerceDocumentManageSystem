@@ -1,12 +1,14 @@
-package com.oleg.project.domain.Appeal;
+package com.oleg.project.domain.AppealFiles;
 
+
+import com.oleg.project.domain.Appeal.DeputeAppeal;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "DeputeAppealFiles")
-public class DeputeAppealFiles implements Serializable {
+public class DeputeAppealFiles extends Files implements Serializable {
 
     private static final long serialVersionUID = -5227566248002296042L;
 
@@ -14,6 +16,9 @@ public class DeputeAppealFiles implements Serializable {
     @Column(name = "DeputeAppealFiles_ID", unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int deputeAppealFilesId;
+
+    @Column(name = "FileName")
+    private String fileName;
 
     @Column(name = "FilePath")
     private String filePath;
@@ -61,5 +66,15 @@ public class DeputeAppealFiles implements Serializable {
 
     public void setDeputeAppeal(DeputeAppeal deputeAppeal) {
         this.deputeAppeal = deputeAppeal;
+    }
+
+    @Override
+    public String getFileName() {
+        return fileName;
+    }
+
+    @Override
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 }

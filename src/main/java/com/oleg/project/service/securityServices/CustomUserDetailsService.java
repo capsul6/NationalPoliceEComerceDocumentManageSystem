@@ -1,4 +1,4 @@
-package com.oleg.project.service.SecurityServices;
+package com.oleg.project.service.securityServices;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

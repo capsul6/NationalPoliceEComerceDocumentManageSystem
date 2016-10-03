@@ -131,7 +131,7 @@
         <textarea class="form-control" disabled rows="3"><c:out value="${deputeAppealIdForInformPage.result}"/>
         </textarea>
 
-        <a href="<c:url value='/deputeAppeal/downloadFile?id=${deputeAppealIdForInformPage.id}'/>" download>Показати документ</a>
+        <a href="<c:url value='/deputeAppeal/listOfFiles?id=${deputeAppealIdForInformPage.id}'/>">Показати список файлів</a>
 
     </div>
 

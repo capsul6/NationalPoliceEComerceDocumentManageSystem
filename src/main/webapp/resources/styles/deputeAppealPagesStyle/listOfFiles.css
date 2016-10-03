@@ -1,0 +1,18 @@
+body{
+    background-size: cover;
+    background: url(../../images/White-Background-9B1%20обр.jpg) no-repeat;
+}
+
+.header {
+    display:block;
+    margin:0 auto;
+}
+
+.table {
+    margin:0 auto;
+    table-layout: fixed;
+}
+
+.table td {
+    word-break: break-all;
+}

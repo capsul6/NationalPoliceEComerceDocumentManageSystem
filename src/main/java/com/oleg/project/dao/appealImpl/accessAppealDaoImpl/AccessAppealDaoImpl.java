@@ -1,10 +1,10 @@
-package com.oleg.project.dao.impl;
+package com.oleg.project.dao.appealImpl.accessAppealDaoImpl;
 
 
 import com.oleg.project.dao.AppealDao;
 import com.oleg.project.dao.SessionDao;
 import com.oleg.project.domain.Appeal.AccessAppeal;
-import com.oleg.project.domain.Appeal.DeputeAppealFiles;
+import com.oleg.project.domain.AppealFiles.DeputeAppealFiles;
 import com.oleg.project.domain.utilDomain.RequestForDeputeAppealSearch;
 import org.hibernate.Criteria;
 import org.hibernate.Query;

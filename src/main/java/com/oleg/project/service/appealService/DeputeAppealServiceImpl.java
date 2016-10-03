@@ -1,9 +1,9 @@
-package com.oleg.project.service.AppealService;
+package com.oleg.project.service.appealService;
 
 
-import com.oleg.project.dao.impl.DeputeAppealDaoImpl;
+import com.oleg.project.dao.appealImpl.deputeAppealDaoImpl.DeputeAppealDaoImpl;
 import com.oleg.project.domain.Appeal.DeputeAppeal;
-import com.oleg.project.domain.Appeal.DeputeAppealFiles;
+import com.oleg.project.domain.AppealFiles.DeputeAppealFiles;
 import com.oleg.project.domain.utilDomain.RequestForDeputeAppealSearch;
 import com.oleg.project.dto.appealDto.DeputeAppealDto;
 import com.oleg.project.dto.requestDto.DeputeAppealForRequestDto;

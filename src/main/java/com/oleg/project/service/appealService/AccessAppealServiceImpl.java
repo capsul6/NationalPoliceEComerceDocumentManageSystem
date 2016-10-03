@@ -1,9 +1,9 @@
-package com.oleg.project.service.AppealService;
+package com.oleg.project.service.appealService;
 
 
-import com.oleg.project.dao.impl.AccessAppealDaoImpl;
+import com.oleg.project.dao.appealImpl.accessAppealDaoImpl.AccessAppealDaoImpl;
 import com.oleg.project.domain.Appeal.AccessAppeal;
-import com.oleg.project.domain.Appeal.DeputeAppealFiles;
+import com.oleg.project.domain.AppealFiles.DeputeAppealFiles;
 import com.oleg.project.dto.appealDto.AccessAppealDto;
 import com.oleg.project.dto.requestDto.DeputeAppealForRequestDto;
 import org.apache.log4j.Logger;

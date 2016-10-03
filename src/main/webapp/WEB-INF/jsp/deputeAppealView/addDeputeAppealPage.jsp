@@ -104,7 +104,7 @@
         <option value="Фацевич О.Ю.">Фацевич О.Ю.</option>
         <option value="Руденко А.А.">Руденко А.А.</option>
         <option value="Бушуєв К.В.">Бушуєв К.В.</option>
-        <option value="Бушуєв К.В.">Крищенко А.Є.</option>
+        <option value="Крищенко А.Є.">Крищенко А.Є.</option>
       </select>
 
       <label>Зміст резолюції</label>

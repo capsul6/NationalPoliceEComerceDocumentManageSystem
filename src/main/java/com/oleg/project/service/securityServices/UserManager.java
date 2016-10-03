@@ -1,4 +1,4 @@
-package com.oleg.project.service.SecurityServices;
+package com.oleg.project.service.securityServices;
 
 
 import com.oleg.project.domain.User.User;

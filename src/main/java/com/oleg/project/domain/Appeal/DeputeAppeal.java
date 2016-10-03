@@ -2,6 +2,8 @@ package com.oleg.project.domain.Appeal;
 
 
 
+import com.oleg.project.domain.AppealFiles.DeputeAppealFiles;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
@@ -75,7 +77,7 @@ public class DeputeAppeal extends Appeal implements Serializable {
     @Column(name = "result")
     private String result;
 
-    @OneToMany(mappedBy = "deputeAppeal", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "deputeAppeal", cascade = CascadeType.ALL)
     private List<DeputeAppealFiles> deputeAppealFiles = new ArrayList<DeputeAppealFiles>();
 
 

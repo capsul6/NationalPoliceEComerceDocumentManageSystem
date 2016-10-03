@@ -1,6 +1,6 @@
 package com.oleg.project.dao;
 
-import com.oleg.project.domain.Appeal.DeputeAppealFiles;
+import com.oleg.project.domain.AppealFiles.DeputeAppealFiles;
 import com.oleg.project.domain.utilDomain.RequestForDeputeAppealSearch;
 
 import java.util.List;
